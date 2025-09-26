@@ -1,3 +1,21 @@
-[gd_scene format=3 uid="uid://c38fqstgvh6t6"]
+[gd_scene load_steps=3 format=3 uid="uid://c38fqstgvh6t6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_45ppx"]
+size = Vector3(294.2385, 1, 341.65115)
+
+[sub_resource type="BoxMesh" id="BoxMesh_imaac"]
+size = Vector3(286.61, 1.06, 342.81)
 
 [node name="MainGameHandler" type="Node3D"]
+
+[node name="TestFloor" type="Node3D" parent="."]
+
+[node name="FloorBody" type="StaticBody3D" parent="TestFloor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestFloor/FloorBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.753372, 0, -93.142136)
+shape = SubResource("BoxShape3D_45ppx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestFloor/FloorBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.600357, 0, -90.959435)
+mesh = SubResource("BoxMesh_imaac")
